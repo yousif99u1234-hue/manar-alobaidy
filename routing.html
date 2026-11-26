@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ديمو: استثمار أو تمويل FFC | يوسف أحمد</title>
+<meta name="description" content="توزيع العروض بين الاستثمار والتمويل.">
+<meta property="og:title" content="ديمو: استثمار أو تمويل FFC | يوسف أحمد">
+<meta property="og:description" content="توزيع العروض بين الاستثمار والتمويل.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAFA}
+a{color:#0A0A0A}a:hover{color:#444}
+p{margin:0}
+h1,h2,h3{margin:0}
+button{font-family:inherit;cursor:pointer;text-align:inherit}
+</style>
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div dir="rtl" style="font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; color: #0A0A0A; background: #FAFAFA; line-height: 1.7">
+
+<header style="border-bottom: 1px solid #E5E5E5">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; line-height: 1.3">
+<span style="font-weight: 700; font-size: 18px">يوسف أحمد</span>
+<span style="font-size: 13px; color: #555; font-family: 'Space Grotesk', sans-serif" dir="ltr">Creative Strategist &amp; AI Advisor</span>
+</div>
+<a href="index.html" style="font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid #BDBDBD; border-radius: 999px; padding: 10px 20px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">→ رجوع للعرض</a>
+</div>
+</header>
+
+<section style="background: #0A0A0A; color: #FAFAFA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px 64px; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 14px; color: #BDBDBD; font-weight: 500">منار المستثمر · ديمو 2 من 4</span>
+<h1 style="font-size: clamp(34px, 4.6vw, 56px); line-height: 1.25; font-weight: 700; max-width: 920px">كل عرض يروح لمكانه الصح: استثمار، تمويل من FFC، أو نصيحة</h1>
+<p style="font-size: 18px; color: #D4D4D4; max-width: 780px; font-weight: 300">أغلب المشاريع اللي تتقدم إلك مو جاهزة لحصة استثمارية، بس كثير منها مناسب لقرض. الوكيل يفرزها، ويكتب الرد لكل صاحب مشروع. بهالطريقة كل عرض ترفضه كمستثمر ممكن يصير زبون لـ FFC.</p>
+<span style="font-size: 13px; border: 1px solid #555; color: #D4D4D4; padding: 6px 14px; border-radius: 999px; align-self: flex-start">المشاريع بهالديمو تجريبية لأغراض العرض</span>
+</div>
+</section>
+
+<section>
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 24px">
+
+<span style="font-size: 14px; color: #555; font-weight: 500">عروض هالأسبوع · اضغط على أي عرض حتى تشوف الرد اللي كتبه الوكيل</span>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start">
+<sc-for list="{{ cols }}" as="c" hint-placeholder-count="3">
+<div style="{{ c.box }}">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 10px">
+<h2 style="font-size: 18px; font-weight: 700">{{ c.title }}</h2>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700">{{ c.count }}</span>
+</div>
+<span style="font-size: 13px; color: {{ c.muted }}">{{ c.desc }}</span>
+<sc-for list="{{ c.items }}" as="it" hint-placeholder-count="3">
+<button type="button" onClick="{{ it.pick }}" style="{{ it.style }}">
+<span style="font-size: 15px; font-weight: 700">{{ it.name }}</span>
+<span style="font-size: 13px">{{ it.meta }}</span>
+</button>
+</sc-for>
+</div>
+</sc-for>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 16px; overflow: hidden">
+<div style="padding: 20px 28px; border-bottom: 1px solid #E5E5E5; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center">
+<div style="display: flex; flex-direction: column">
+<span style="font-size: 13px; color: #555">{{ sel.lane }}</span>
+<span style="font-size: 18px; font-weight: 700">{{ sel.name }}</span>
+</div>
+<span style="font-size: 12px; border: 1px solid #BDBDBD; padding: 4px 12px; border-radius: 999px; color: #444">رد جاهز · بانتظار موافقتك</span>
+</div>
+<div style="padding: 24px 28px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; color: #555; font-weight: 500">ليش انحط بهالمسار</span>
+<p style="font-size: 15px">{{ sel.why }}</p>
+</div>
+<div style="background: #F0F0F0; border-radius: 14px; padding: 18px 20px; max-width: 640px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #555">رسالة واتساب لصاحب المشروع</span>
+<p style="font-size: 15px; white-space: pre-line; line-height: 1.9">{{ sel.msg }}</p>
+</div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5">
+<div style="background: #FFFFFF; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 15px; font-weight: 700">إلك أنت</span><span style="font-size: 14px; color: #444">تقرا بس العروض المناسبة للاستثمار، ويه مذكرتها.</span></div>
+<div style="background: #FFFFFF; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 15px; font-weight: 700">لـ FFC</span><span style="font-size: 14px; color: #444">طلبات تمويل جاهزة توصل لمسؤولي القروض بدون كلفة تسويق.</span></div>
+<div style="background: #FFFFFF; padding: 22px 24px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 15px; font-weight: 700">لصاحب المشروع</span><span style="font-size: 14px; color: #444">يوصله رد خلال يوم بدل الصمت، وهذا يبني سمعتك كمستثمر.</span></div>
+</div>
+
+</div>
+</section>
+</div>
+</template>
+<script src="dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { id: 'a1' }; }
+renderVals() {
+const lanes = [
+{ k: 'eq', title: 'استثمار بحصة', desc: 'نمو سريع وإيراد حقيقي. يوصلك ويه المذكرة.' },
+{ k: 'debt', title: 'تمويل من FFC', desc: 'مشروع مربح ومستقر، ويحتاج قرض مو شريك.' },
+{ k: 'no', title: 'مو جاهز بعد', desc: 'رد مهذب ويه نصايح عملية.' }
+];
+const items = [
+{ id: 'a1', k: 'eq', name: 'سلّتي · توصيل بقالة', meta: '$150K مقابل 10% · نمو 12% شهرياً', why: 'إيراد شهري 29.6 ألف دولار ونمو ثابت 6 أشهر، والتقييم بحدود 4 أضعاف الإيراد السنوي.', msg: 'هلا أستاذ علي،\nوصلنا عرض «سلّتي» وأعجبنا النمو اللي حققتوه.\nأستاذ منار يحب يلتقي بيكم ساعة الأسبوع الجاي. نحتاج قبلها كلفة الطلب الواحد ونسبة الزبائن الراجعين.\nشنو الوقت اللي يناسبكم؟' },
+{ id: 'a2', k: 'eq', name: 'منصة حجز عيادات', meta: '$200K مقابل 12% · 140 عيادة مشتركة', why: 'اشتراك شهري ثابت من 140 عيادة، ونسبة إلغاء الاشتراك أقل من 3% شهرياً.', msg: 'هلا دكتورة سارة،\nعرضكم وصل ومناسب لاهتمامات أستاذ منار.\nنحتاج منكم تفاصيل الإيراد لكل عيادة وخطة التوسع للمحافظات، وبعدها نحدد موعد.' },
+{ id: 'b1', k: 'debt', name: 'الرافدين للألمنيوم', meta: '$80K مقابل 20% · ربح شهري ثابت', why: 'مربح من 11 سنة بدون نمو. الأنسب قرض لماكنة القص، والماكنة نفسها ممكن تكون ضمان.', msg: 'هلا أستاذ حيدر،\nشكراً على عرض «الرافدين للألمنيوم».\nمشروعكم مستقر ومربح، والأنسب إله تمويل بأقساط بدل شريك بحصة.\nمسؤول القروض بالشركة الأولى للتمويل راح يتواصل وياكم خلال يومين حتى يشرحلكم الشروط.' },
+{ id: 'b2', k: 'debt', name: 'مطبخ حلويات منزلي', meta: '$15K · 6 سنوات شغل', why: 'طلب صغير لتوسيع المطبخ، والمبيعات مثبتة بسجل طلبات تطبيق التوصيل.', msg: 'هلا ست زينب،\nمشروعكم حلو والطلب يناسب برامج تمويل المشاريع الصغيرة بالشركة الأولى للتمويل.\nراح يتواصل وياج مسؤول القروض حتى يكمل وياج الأوراق.' },
+{ id: 'b3', k: 'debt', name: 'محل قطع غيار سيارات', meta: '$40K · مخزون وزبائن ثابتين', why: 'نشاط تجاري مستقر ويحتاج رأس مال عامل للمخزون، مو استثمار بحصة.', msg: 'هلا أستاذ مصطفى،\nطلبكم وصل. النشاط مناسب لتمويل رأس مال عامل بأقساط.\nراح نحولكم لفريق التمويل بالشركة الأولى للتمويل.' },
+{ id: 'c1', k: 'no', name: 'ذكي · مدرّس AI', meta: '$300K مقابل 5% · بدون إيراد', why: 'تقييم 6 مليون دولار بدون أي إيراد، و14% بس من المستخدمين يرجعون أسبوعياً.', msg: 'هلا أستاذ أحمد،\nشكراً على عرض «ذكي». الفكرة تحل مشكلة حقيقية.\nقبل الاستثمار نحتاج نشوف شغلتين: إن أولياء الأمور مستعدين يدفعون، وإن نسبة المستخدمين الراجعين ترتفع فوق 30%.\nارجعولنا بعد 6 أشهر ويه هالأرقام.' },
+{ id: 'c2', k: 'no', name: 'تطبيق تأجير ملابس', meta: '$100K · فكرة بدون نسخة تجريبية', why: 'فكرة على الورق بدون منتج أو زبائن.', msg: 'هلا ست نور،\nشكراً على العرض. الفكرة بمرحلة مبكرة جداً.\nننصحكم تبدون بنسخة بسيطة على انستغرام، وتجربون ويه 50 زبونة قبل لا تطلبون تمويل.' },
+{ id: 'c3', k: 'no', name: 'شركة استيراد إلكترونيات', meta: '$250K · هامش ربح ضيق', why: 'نشاط استيراد يعتمد على فرق سعر الصرف، وما بيه ميزة تنافسية واضحة.', msg: 'هلا أستاذ كرار،\nشكراً على العرض. النشاط حالياً معتمد على فرق الأسعار أكثر من ميزة خاصة بيكم.\nإذا عندكم وكالة حصرية أو قناة بيع خاصة، يسعدنا نشوف العرض مرة ثانية.' }
+];
+const st = this.state;
+const sel = items.find((x) => x.id === st.id) || items[0];
+const laneName = { eq: 'استثمار بحصة', debt: 'تمويل من FFC', no: 'مو جاهز بعد' };
+const cols = lanes.map((l) => {
+const dark = l.k === 'eq';
+const its = items.filter((x) => x.k === l.k);
+return {
+title: l.title, desc: l.desc, count: String(its.length), muted: dark ? '#BDBDBD' : '#555',
+box: 'border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 12px; ' + (dark ? 'background: #0A0A0A; color: #FAFAFA' : l.k === 'debt' ? 'background: #FFFFFF; border: 2px solid #0A0A0A' : 'background: #FFFFFF; border: 1px dashed #8A8A8A'),
+items: its.map((x) => {
+const on = x.id === sel.id;
+return {
+name: x.name, meta: x.meta, pick: () => this.setState({ id: x.id }),
+style: 'display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border-radius: 12px; width: 100%; box-sizing: border-box; min-height: 44px; ' + (dark ? (on ? 'background: #FAFAFA; color: #0A0A0A; border: 1px solid #FAFAFA' : 'background: #1A1A1A; color: #FAFAFA; border: 1px solid #333333') : (on ? 'background: #0A0A0A; color: #FAFAFA; border: 1px solid #0A0A0A' : 'background: #FAFAFA; color: #0A0A0A; border: 1px solid #E5E5E5'))
+};
+})
+};
+});
+return { cols: cols, sel: { name: sel.name, lane: laneName[sel.k], why: sel.why, msg: sel.msg } };
+}
+}
+mountDC(Component);
+</script>
+</body>
+</html>

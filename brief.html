@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ديمو: تقرير سياسات | يوسف أحمد</title>
+<meta name="description" content="تقرير سياسات Iraq Future Foundation بالعربي والإنكليزي.">
+<meta property="og:title" content="ديمو: تقرير سياسات | يوسف أحمد">
+<meta property="og:description" content="تقرير سياسات Iraq Future Foundation بالعربي والإنكليزي.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAFA}
+a{color:#0A0A0A}a:hover{color:#444}
+p{margin:0}
+h1,h2,h3{margin:0}
+button{font-family:inherit;cursor:pointer}
+</style>
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div dir="rtl" style="font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; color: #0A0A0A; background: #FAFAFA; line-height: 1.7">
+
+<header style="border-bottom: 1px solid #E5E5E5">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; line-height: 1.3">
+<span style="font-weight: 700; font-size: 18px">يوسف أحمد</span>
+<span style="font-size: 13px; color: #555; font-family: 'Space Grotesk', sans-serif" dir="ltr">Creative Strategist &amp; AI Advisor</span>
+</div>
+<a href="index.html" style="font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid #BDBDBD; border-radius: 999px; padding: 10px 20px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">→ رجوع للعرض</a>
+</div>
+</header>
+
+<section style="background: #0A0A0A; color: #FAFAFA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px 64px; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 14px; color: #BDBDBD; font-weight: 500">ديمو 3 من 3</span>
+<h1 style="font-size: clamp(34px, 4.6vw, 56px); line-height: 1.25; font-weight: 700; max-width: 900px">منشورك عن الأردن، كتقرير سياسات جاهز للإرسال</h1>
+<p style="font-size: 18px; color: #D4D4D4; max-width: 760px; font-weight: 300">نفس تحليلك ونفس أرقامك، بصيغة تقرير سياسات (Policy Brief) باسم Iraq Future Foundation. ينرسل لوزارة التجارة والمنظمات الدولية، وينعرض بالمؤتمرات. بدّل اللغة وشوف النسختين.</p>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<button type="button" onClick="{{ setAr }}" style="{{ arStyle }}">النسخة العربية</button>
+<button type="button" onClick="{{ setEn }}" style="{{ enStyle }}">English version</button>
+</div>
+</div>
+</section>
+
+<section>
+<div style="max-width: 1200px; margin: 0 auto; padding: 56px 32px 96px; display: flex; flex-direction: column; gap: 24px; align-items: center">
+
+<article dir="{{ t.dir }}" style="background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 4px; max-width: 880px; width: 100%; box-sizing: border-box; overflow: hidden">
+
+<div style="background: #0A0A0A; color: #FAFAFA; padding: 20px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px">
+<span style="font-weight: 700; letter-spacing: 0.04em">{{ t.org }}</span>
+<span style="color: #BDBDBD">{{ t.kind }} · {{ t.date }}</span>
+</div>
+
+<div style="padding: 48px 48px 32px; display: flex; flex-direction: column; gap: 14px; border-bottom: 1px solid #E5E5E5">
+<h2 style="font-size: clamp(28px, 3.4vw, 40px); line-height: 1.3; font-weight: 700">{{ t.title }}</h2>
+<p style="font-size: 18px; color: #444">{{ t.subtitle }}</p>
+<span style="font-size: 14px; color: #555">{{ t.author }}</span>
+</div>
+
+<div style="padding: 32px 48px; display: flex; flex-direction: column; gap: 12px; background: #FAFAFA; border-bottom: 1px solid #E5E5E5">
+<h3 style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em">{{ t.sumH }}</h3>
+<p style="font-size: 17px; line-height: 1.9">{{ t.sum }}</p>
+</div>
+
+<div style="padding: 32px 48px; display: flex; flex-direction: column; gap: 16px; border-bottom: 1px solid #E5E5E5">
+<h3 style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em">{{ t.figH }}</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5">
+<sc-for list="{{ t.figs }}" as="f" hint-placeholder-count="4">
+<div style="background: #FFFFFF; padding: 18px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; line-height: 1.1" dir="ltr">{{ f.v }}</span>
+<span style="font-size: 13px; color: #444">{{ f.l }}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 8px">
+<span style="font-size: 14px; font-weight: 700">{{ t.chartH }}</span>
+<sc-for list="{{ t.bars }}" as="b" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span>{{ b.l }}</span><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700" dir="ltr">{{ b.v }}</span></div>
+<div style="height: 14px; background: #F0F0F0; border-radius: 3px; overflow: hidden"><div style="{{ b.bar }}"></div></div>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: #555">{{ t.chartNote }}</span>
+</div>
+</div>
+
+<div style="padding: 32px 48px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #E5E5E5">
+<h3 style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em">{{ t.ctxH }}</h3>
+<p style="font-size: 16px; line-height: 1.9; color: #333">{{ t.ctx }}</p>
+</div>
+
+<div style="padding: 32px 48px; display: flex; flex-direction: column; gap: 18px; border-bottom: 1px solid #E5E5E5">
+<h3 style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em">{{ t.anH }}</h3>
+<sc-for list="{{ t.an }}" as="x" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 16px; font-weight: 700">{{ x.h }}</span>
+<p style="font-size: 15px; line-height: 1.9; color: #333">{{ x.p }}</p>
+</div>
+</sc-for>
+</div>
+
+<div style="padding: 32px 48px; display: flex; flex-direction: column; gap: 16px; background: #0A0A0A; color: #FAFAFA">
+<h3 style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em">{{ t.recH }}</h3>
+<sc-for list="{{ t.recs }}" as="r" hint-placeholder-count="4">
+<div style="display: flex; gap: 16px; align-items: flex-start; border-top: 1px solid #262626; padding-top: 14px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #BDBDBD; line-height: 1.3">{{ r.n }}</span>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 16px; font-weight: 700">{{ r.h }}</span>
+<p style="font-size: 15px; color: #D4D4D4; line-height: 1.8">{{ r.p }}</p>
+</div>
+</div>
+</sc-for>
+</div>
+
+<div style="padding: 20px 48px; font-size: 12px; color: #555; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px">
+<span>{{ t.src }}</span>
+<span>{{ t.page }}</span>
+</div>
+</article>
+
+<div style="background: #F0F0F0; padding: 20px 24px; border-radius: 12px; font-size: 15px; color: #333; max-width: 880px; width: 100%; box-sizing: border-box">
+<strong style="color: #0A0A0A">كل المحتوى مأخوذ من منشورك عن الميزان التجاري العراقي–الأردني.</strong> شغلي هو الهيكلة والصياغة والتصميم والترجمة. بالنسخة النهائية يطلع PDF جاهز للطباعة والإرسال، وتراجع كل كلمة قبل النشر.
+</div>
+
+</div>
+</section>
+
+</div>
+</template>
+<script src="dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { lang: 'ar' };
+}
+renderVals() {
+const en = this.state.lang === 'en';
+const bar = (w, dark) => 'height: 100%; border-radius: 3px; width: ' + w + '%; background: ' + (dark ? '#0A0A0A' : '#8A8A8A');
+const AR = {
+dir: 'rtl', org: 'IRAQ FUTURE FOUNDATION', kind: 'تقرير سياسات رقم 01', date: 'تشرين الثاني 2026',
+title: 'اتفاقية التجارة الحرة مع الأردن: امتياز باتجاه واحد',
+subtitle: 'العجز التجاري العراقي مع الأردن ارتفع 40% خلال سنة واحدة، والاتفاقية تحتاج مراجعة تعيد التوازن بين البلدين.',
+author: 'منار العبيدي · الشريك المؤسس',
+sumH: 'الخلاصة التنفيذية',
+sum: 'خلال الأشهر الثمانية الأولى من 2026، ارتفعت الصادرات الأردنية إلى العراق 25.6% لتبلغ 1.134 مليار دولار، بينما تراجعت الصادرات العراقية إلى الأردن 49.6% إلى 73.6 مليون دولار فقط. الأردن يصدّر للعراق اليوم ما يعادل 15 ضعف ما يستورده منه. في ظل قاعدة تصديرية عراقية ضعيفة خارج النفط، تحولت اتفاقية التجارة الحرة إلى امتياز أحادي الاتجاه، والمطلوب مراجعة قوائم الإعفاء وربطها بشروط توازن ومحتوى محلي.',
+figH: 'الأرقام الرئيسية · الأشهر الثمانية الأولى 2026 مقابل 2025',
+figs: [
+{ v: '+25.6%', l: 'الصادرات الأردنية إلى العراق (903 مليون ← 1.134 مليار $)' },
+{ v: '−49.6%', l: 'الصادرات العراقية إلى الأردن (146.1 ← 73.6 مليون $)' },
+{ v: '+40%', l: 'العجز التجاري العراقي (757 مليون ← 1.061 مليار $)' },
+{ v: '6.5%', l: 'تغطية الصادرات العراقية للواردات من الأردن (كانت 16%)' }
+],
+chartH: 'حجم التبادل التجاري (مليون دولار)',
+bars: [
+{ l: 'صادرات الأردن للعراق · 2025', v: '903', bar: bar(80, false) },
+{ l: 'صادرات الأردن للعراق · 2026', v: '1,134', bar: bar(100, true) },
+{ l: 'صادرات العراق للأردن · 2025', v: '146.1', bar: bar(13, false) },
+{ l: 'صادرات العراق للأردن · 2026', v: '73.6', bar: bar(6.5, true) }
+],
+chartNote: 'الفترة: الأشهر الثمانية الأولى من كل سنة.',
+ctxH: 'السياق',
+ctx: 'وقّع البلدان اتفاقية التجارة الحرة الثنائية عام 2009، ومُنحت بموجبها السلع أردنية المنشأ إعفاءات كمركية واسعة وفق قوائم متفق عليها. أبرز هذه الإعفاءات جاء عام 2017، حين أُعفيت 300 سلعة أردنية بطلب من الجانب الأردني.',
+anH: 'التحليل',
+an: [
+{ h: 'ميزة سعرية بفعل الفارق الضريبي', p: 'المنتج الأردني يدخل السوق العراقية معفى من التعرفة، بينما يدفع منافسوه من الدول الأخرى التعرفة الكاملة. بذلك كسب حصة سوقية لا بفضل التنافسية فقط، بل بفعل الفارق الكمركي.' },
+{ h: 'إعادة التصدير تنمو أسرع', p: 'نمت إعادة التصدير الأردنية إلى العراق 31.1% مقابل 25.2% للصادرات الوطنية. هذا يشير إلى أن جزءاً من السلع يُعاد توجيهه عبر الأردن للاستفادة من الإعفاء.' },
+{ h: 'غياب المقابل العراقي', p: 'الجانب العراقي لم يستفد من الإعفاء المماثل، لأن ما يصدّره للأردن محدود أصلاً وفي تراجع حاد. الاتفاقية تفيد حين تتقارب القاعدة الإنتاجية للطرفين، لا حين يكون أحدهما مستهلكاً صافياً.' }
+],
+recH: 'التوصيات',
+recs: [
+{ n: '01', h: 'مراجعة قوائم الإعفاء', p: 'إعادة تقييم السلع المعفاة، خصوصاً قائمة 2017، وفق أثرها على الإيرادات الكمركية والصناعة المحلية.' },
+{ n: '02', h: 'ربط الإعفاء بشروط توازن ومحتوى محلي', p: 'إعفاء تدريجي مرتبط بتحسن الميزان التجاري، ونسبة محتوى محلي حقيقية للسلعة المعفاة.' },
+{ n: '03', h: 'تشديد التدقيق في شهادات المنشأ', p: 'خصوصاً للسلع المعاد تصديرها، حتى لا تتحول الاتفاقية إلى ممر للسلع غير الأردنية.' },
+{ n: '04', h: 'برنامج لتحفيز الصادرات العراقية', p: 'دور لوزارة التجارة في دعم المنتج العراقي للاستفادة من الاتفاقية ودخول السوق الأردنية، بما يخدم البلدين.' }
+],
+src: 'المصدر: بيانات التجارة الخارجية الأردنية للأشهر الثمانية الأولى من 2025 و2026.',
+page: 'Iraq Future Foundation · 1'
+};
+const EN = {
+dir: 'ltr', org: 'IRAQ FUTURE FOUNDATION', kind: 'Policy Brief No. 01', date: 'November 2026',
+title: 'The Iraq–Jordan Free Trade Agreement: A One-Way Advantage',
+subtitle: 'Iraq’s trade deficit with Jordan grew 40% in one year. The agreement needs a review that restores balance for both countries.',
+author: 'Manar Alobaidy · Founding Partner',
+sumH: 'EXECUTIVE SUMMARY',
+sum: 'In the first eight months of 2026, Jordanian exports to Iraq rose 25.6% to $1.134 billion, while Iraqi exports to Jordan fell 49.6% to just $73.6 million. Jordan now exports to Iraq about 15 times what it imports from it. With a weak non-oil export base, Iraq gains little from the free trade agreement, which has effectively become a one-way advantage. Exemption lists should be reviewed and tied to balance and local-content conditions.',
+figH: 'KEY FIGURES · JAN–AUG 2026 VS 2025',
+figs: [
+{ v: '+25.6%', l: 'Jordanian exports to Iraq ($903M → $1.134B)' },
+{ v: '−49.6%', l: 'Iraqi exports to Jordan ($146.1M → $73.6M)' },
+{ v: '+40%', l: 'Iraq’s trade deficit ($757M → $1.061B)' },
+{ v: '6.5%', l: 'Export coverage of imports from Jordan (was 16%)' }
+],
+chartH: 'Bilateral trade (USD million)',
+bars: [
+{ l: 'Jordan → Iraq · 2025', v: '903', bar: bar(80, false) },
+{ l: 'Jordan → Iraq · 2026', v: '1,134', bar: bar(100, true) },
+{ l: 'Iraq → Jordan · 2025', v: '146.1', bar: bar(13, false) },
+{ l: 'Iraq → Jordan · 2026', v: '73.6', bar: bar(6.5, true) }
+],
+chartNote: 'Period: first eight months of each year.',
+ctxH: 'CONTEXT',
+ctx: 'The two countries signed a bilateral free trade agreement in 2009, granting goods of Jordanian origin broad customs exemptions under agreed lists. The most significant came in 2017, when 300 Jordanian goods were exempted at Jordan’s request.',
+anH: 'ANALYSIS',
+an: [
+{ h: 'A price advantage driven by tariffs', p: 'Jordanian products enter Iraq tariff-free while competitors from other countries pay full duties. Jordan has gained market share not only through competitiveness, but through the tariff differential.' },
+{ h: 'Re-exports are growing faster', p: 'Jordanian re-exports to Iraq grew 31.1%, versus 25.2% for national exports, suggesting some goods are being routed through Jordan to benefit from the exemption.' },
+{ h: 'No reciprocal benefit for Iraq', p: 'Iraq gains little from the matching exemption because its exports to Jordan are small and falling sharply. Free trade agreements work when both sides have comparable production bases, not when one side is a net consumer.' }
+],
+recH: 'RECOMMENDATIONS',
+recs: [
+{ n: '01', h: 'Review the exemption lists', p: 'Reassess exempted goods, especially the 2017 list, based on their impact on customs revenue and local industry.' },
+{ n: '02', h: 'Tie exemptions to balance and local content', p: 'Phase exemptions against improvement in the trade balance, and require genuine local content for exempted goods.' },
+{ n: '03', h: 'Tighten certificate-of-origin checks', p: 'Especially for re-exported goods, so the agreement does not become a corridor for non-Jordanian products.' },
+{ n: '04', h: 'Launch an Iraqi export programme', p: 'The Ministry of Trade should help Iraqi producers use the agreement to enter the Jordanian market, so it serves both countries.' }
+],
+src: 'Source: Jordanian foreign trade data, Jan–Aug 2025 and 2026.',
+page: 'Iraq Future Foundation · 1'
+};
+const on = 'border-radius: 999px; padding: 12px 22px; font-size: 15px; font-weight: 700; min-height: 44px; background: #FAFAFA; color: #0A0A0A; border: 1px solid #FAFAFA';
+const off = 'border-radius: 999px; padding: 12px 22px; font-size: 15px; font-weight: 500; min-height: 44px; background: transparent; color: #FAFAFA; border: 1px solid #555';
+return {
+t: en ? EN : AR,
+setAr: () => this.setState({ lang: 'ar' }),
+setEn: () => this.setState({ lang: 'en' }),
+arStyle: en ? off : on,
+enStyle: en ? on : off
+};
+}
+}
+mountDC(Component);
+</script>
+</body>
+</html>

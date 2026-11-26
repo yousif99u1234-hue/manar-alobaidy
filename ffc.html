@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ديمو: AI لعمليات FFC | يوسف أحمد</title>
+<meta name="description" content="فرز طلبات التمويل والإنذار المبكر للتعثر.">
+<meta property="og:title" content="ديمو: AI لعمليات FFC | يوسف أحمد">
+<meta property="og:description" content="فرز طلبات التمويل والإنذار المبكر للتعثر.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAFA}
+a{color:#0A0A0A}a:hover{color:#444}
+p{margin:0}
+h1,h2,h3{margin:0}
+button{font-family:inherit;cursor:pointer;text-align:inherit}
+</style>
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div dir="rtl" style="font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; color: #0A0A0A; background: #FAFAFA; line-height: 1.7">
+
+<header style="border-bottom: 1px solid #E5E5E5">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; line-height: 1.3">
+<span style="font-weight: 700; font-size: 18px">يوسف أحمد</span>
+<span style="font-size: 13px; color: #555; font-family: 'Space Grotesk', sans-serif" dir="ltr">Creative Strategist &amp; AI Advisor</span>
+</div>
+<a href="index.html" style="font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid #BDBDBD; border-radius: 999px; padding: 10px 20px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">→ رجوع للعرض</a>
+</div>
+</header>
+
+<section style="background: #0A0A0A; color: #FAFAFA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px 64px; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 14px; color: #BDBDBD; font-weight: 500">ديمو 2 من 3</span>
+<h1 style="font-size: clamp(34px, 4.6vw, 56px); line-height: 1.25; font-weight: 700; max-width: 900px">AI لعمليات FFC: فرز الطلبات والإنذار المبكر</h1>
+<p style="font-size: 18px; color: #D4D4D4; max-width: 760px; font-weight: 300">الوكيل يقرا المستمسكات ويفرز الطلبات، ويراقب أقساط المحفظة حتى يكشف التعثر قبل لا يصير. القرار يبقى للجنة الائتمان، والوكيل يختصر عليها الوقت.</p>
+<span style="font-size: 13px; border: 1px solid #555; color: #D4D4D4; padding: 6px 14px; border-radius: 999px; align-self: flex-start">كل الأسماء والأرقام بهالديمو تجريبية لأغراض العرض</span>
+</div>
+</section>
+
+<section>
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 28px">
+
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" onClick="{{ showTriage }}" style="{{ tabA }}">فرز طلبات التمويل</button>
+<button type="button" onClick="{{ showWarn }}" style="{{ tabB }}">الإنذار المبكر للتعثر</button>
+</div>
+
+<sc-if value="{{ isTriage }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5">
+<sc-for list="{{ triageStats }}" as="k" hint-placeholder-count="4">
+<div style="background: #FFFFFF; padding: 20px 24px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; line-height: 1.1">{{ k.v }}</span>
+<span style="font-size: 14px; color: #444">{{ k.l }}</span>
+</div>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #555; font-weight: 500">الطلبات الواردة هالأسبوع · اضغط على طلب</span>
+<sc-for list="{{ apps }}" as="a" hint-placeholder-count="5">
+<button type="button" onClick="{{ a.pick }}" style="{{ a.box }}">
+<span style="display: flex; justify-content: space-between; gap: 10px; align-items: center">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: #555">{{ a.id }}</span>
+<span style="{{ a.badge }}">{{ a.status }}</span>
+</span>
+<span style="font-size: 16px; font-weight: 700">{{ a.name }}</span>
+<span style="font-size: 14px; color: #444">{{ a.area }} · {{ a.amount }}</span>
+</button>
+</sc-for>
+</div>
+
+<div style="flex: 1.4 1 440px; min-width: 0; background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 16px; overflow: hidden">
+<div style="padding: 24px; border-bottom: 1px solid #E5E5E5; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: #555">{{ sel.id }}</span>
+<h2 style="font-size: 22px; font-weight: 700; line-height: 1.4">{{ sel.name }}</h2>
+<span style="font-size: 14px; color: #444">{{ sel.area }} · {{ sel.years }} · المبلغ المطلوب {{ sel.amount }}</span>
+</div>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #555; font-weight: 500">المستمسكات: قراءة تلقائية</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px">
+<sc-for list="{{ sel.docs }}" as="d" hint-placeholder-count="4">
+<div style="{{ d.box }}"><span style="font-weight: 700; font-family: 'Space Grotesk', sans-serif">{{ d.mark }}</span><span>{{ d.label }}</span></div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #555; font-weight: 500">بيانات استخرجها الوكيل</span>
+<sc-for list="{{ sel.facts }}" as="f" hint-placeholder-count="3">
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px; border-bottom: 1px solid #F0F0F0; padding-bottom: 8px">
+<span style="color: #444">{{ f.k }}</span><span style="font-weight: 700">{{ f.v }}</span>
+</div>
+</sc-for>
+</div>
+<div style="background: #F0F0F0; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #555; font-weight: 500">توصية الوكيل للجنة</span>
+<p style="font-size: 16px; font-weight: 500">{{ sel.rec }}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isWarn }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: #E5E5E5; border: 1px solid #E5E5E5">
+<sc-for list="{{ warnStats }}" as="k" hint-placeholder-count="4">
+<div style="background: #FFFFFF; padding: 20px 24px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; line-height: 1.1">{{ k.v }}</span>
+<span style="font-size: 14px; color: #444">{{ k.l }}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+<span style="font-size: 14px; color: #555; font-weight: 500">فلترة حسب الخطورة:</span>
+<sc-for list="{{ filters }}" as="fl" hint-placeholder-count="4">
+<button type="button" onClick="{{ fl.pick }}" style="{{ fl.style }}">{{ fl.label }}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px">
+<sc-for list="{{ loans }}" as="l" hint-placeholder-count="4">
+<div style="{{ l.box }}">
+<div style="display: flex; justify-content: space-between; gap: 10px; align-items: center">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: {{ l.muted }}">{{ l.id }}</span>
+<span style="{{ l.badge }}">{{ l.level }}</span>
+</div>
+<span style="font-size: 18px; font-weight: 700">{{ l.name }}</span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: {{ l.muted }}">أيام التأخير بآخر 3 أقساط</span>
+<div style="display: flex; gap: 8px; align-items: flex-end; height: 48px" dir="ltr">
+<sc-for list="{{ l.late }}" as="d" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 2px; width: 44px"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 12px">{{ d.v }}</span><div style="{{ d.bar }}"></div></div>
+</sc-for>
+</div>
+</div>
+<p style="font-size: 14px">{{ l.signal }}</p>
+<p style="font-size: 14px; font-weight: 700; border-top: 1px solid {{ l.line }}; padding-top: 10px">الإجراء المقترح: {{ l.action }}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<div style="background: #F0F0F0; padding: 20px 24px; border-radius: 12px; font-size: 15px; color: #333">
+<strong style="color: #0A0A0A">شلون يشتغل بالواقع:</strong> نربطه بنظام FFC الحالي أو بملفات Excel، ونبدي بفرع واحد أو منتج تمويلي واحد لمدة شهر، ونقيس الوقت اللي وفرناه بمراجعة الطلبات وعدد حالات التعثر اللي انكشفت مبكراً.
+</div>
+
+</div>
+</section>
+
+</div>
+</template>
+<script src="dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { tab: 'triage', app: 0, risk: 'all' };
+}
+renderVals() {
+const st = this.state;
+const S = { ready: 'جاهز للجنة', missing: 'ناقص مستمسكات', review: 'يحتاج مراجعة' };
+const appsData = [
+{ id: 'FFC-1042', name: 'محل ألبسة نسائية', area: 'الكرادة', years: '3 سنوات نشاط', amount: '15 مليون د.ع', s: 'ready',
+docs: [['هوية الأحوال المدنية', 1], ['إجازة ممارسة المهنة', 1], ['كشف مبيعات 6 أشهر', 1], ['تعهد الكفيل', 1]],
+facts: [['متوسط المبيعات الشهرية', '9.2 مليون د.ع'], ['القسط الشهري المقترح', '0.55 مليون د.ع'], ['القسط من المبيعات', '6%']],
+rec: 'الملف كامل والقسط بحدود 6% من المبيعات. جاهز للعرض على اللجنة.' },
+{ id: 'FFC-1043', name: 'ورشة نجارة', area: 'الشعلة', years: '7 سنوات نشاط', amount: '25 مليون د.ع', s: 'missing',
+docs: [['هوية الأحوال المدنية', 1], ['إجازة ممارسة المهنة: منتهية', 0], ['فواتير شراء مواد', 1], ['تعهد الكفيل', 1]],
+facts: [['تاريخ انتهاء الإجازة', 'آب 2026'], ['متوسط المشتريات الشهرية', '6.8 مليون د.ع'], ['الغرض من التمويل', 'ماكنة قص CNC']],
+rec: 'إرسال رسالة واتساب تلقائية للزبون يطلب بيها تجديد الإجازة. الطلب يرجع للفرز بعد التحديث.' },
+{ id: 'FFC-1044', name: 'مطبخ منزلي للتوصيل', area: 'زيونة', years: 'سنة ونص نشاط', amount: '5 مليون د.ع', s: 'review',
+docs: [['هوية الأحوال المدنية', 1], ['إجازة ممارسة: نشاط غير مسجل', 0], ['سجل طلبات من تطبيق التوصيل', 1], ['تعهد الكفيل', 1]],
+facts: [['طلبات شهرية (من التطبيق)', '410 طلب'], ['متوسط الإيراد الشهري', '4.1 مليون د.ع'], ['حالة التسجيل', 'غير مسجل رسمياً']],
+rec: 'النشاط حقيقي ومثبت بسجل التطبيق، بس غير مسجل. مرشح مناسب لمسار «التسجيل مقابل التمويل».' },
+{ id: 'FFC-1045', name: 'محل موبايلات وإكسسوارات', area: 'المنصور', years: '4 سنوات نشاط', amount: '30 مليون د.ع', s: 'review',
+docs: [['هوية الأحوال المدنية', 1], ['إجازة ممارسة المهنة', 1], ['كشف مبيعات 6 أشهر', 1], ['فواتير الشراء', 1]],
+facts: [['المبيعات حسب الكشف', '22 مليون د.ع/شهر'], ['المبيعات حسب الفواتير', '13.6 مليون د.ع/شهر'], ['الفرق بين المصدرين', '38%']],
+rec: 'كشف المبيعات أعلى من الفواتير بـ 38%. يحتاج زيارة ميدانية قبل العرض على اللجنة.' },
+{ id: 'FFC-1046', name: 'صالون حلاقة رجالي', area: 'الأعظمية', years: '5 سنوات نشاط', amount: '8 مليون د.ع', s: 'ready',
+docs: [['هوية الأحوال المدنية', 1], ['إجازة ممارسة المهنة', 1], ['كشف حساب مصرفي', 1], ['تعهد الكفيل', 1]],
+facts: [['متوسط الإيداعات الشهرية', '5.4 مليون د.ع'], ['القسط الشهري المقترح', '0.29 مليون د.ع'], ['تمويل سابق ويه FFC', 'مسدد بالكامل']],
+rec: 'زبون سابق سدد بالكامل والملف كامل. أولوية بالعرض على اللجنة.' }
+];
+const badgeOf = (s, dark) => 'font-size: 12px; border-radius: 999px; padding: 2px 10px; white-space: nowrap; ' + (s === 'ready' ? (dark ? 'background: #FAFAFA; color: #0A0A0A' : 'background: #0A0A0A; color: #FAFAFA') : s === 'missing' ? 'border: 1px dashed ' + (dark ? '#BDBDBD; color: #E5E5E5' : '#555; color: #333') : 'border: 1px solid ' + (dark ? '#BDBDBD; color: #E5E5E5' : '#555; color: #333'));
+const apps = appsData.map((a, i) => {
+const on = i === st.app;
+return {
+id: a.id, name: a.name, area: a.area, amount: a.amount, status: S[a.s],
+pick: () => this.setState({ app: i }),
+badge: badgeOf(a.s, on),
+box: 'display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border-radius: 12px; font-size: inherit; width: 100%; box-sizing: border-box; ' + (on ? 'background: #0A0A0A; color: #FAFAFA; border: 1px solid #0A0A0A' : 'background: #FFFFFF; color: #0A0A0A; border: 1px solid #E5E5E5')
+};
+});
+const a = appsData[st.app];
+const sel = {
+id: a.id, name: a.name, area: a.area, years: a.years, amount: a.amount, rec: a.rec,
+docs: a.docs.map((d) => ({ label: d[0], mark: d[1] ? '✓' : '✕', box: 'display: flex; gap: 10px; align-items: center; font-size: 14px; padding: 10px 12px; border-radius: 10px; ' + (d[1] ? 'background: #FAFAFA; border: 1px solid #E5E5E5' : 'background: #FFFFFF; border: 1px solid #0A0A0A; font-weight: 700') })),
+facts: a.facts.map((f) => ({ k: f[0], v: f[1] }))
+};
+const count = (s) => appsData.filter((x) => x.s === s).length;
+const triageStats = [
+{ v: String(appsData.length), l: 'طلبات وصلت هالأسبوع' },
+{ v: String(count('ready')), l: 'جاهزة للجنة' },
+{ v: String(count('missing')), l: 'ناقصة، انبلغ الزبون تلقائياً' },
+{ v: String(count('review')), l: 'تحتاج مراجعة بشرية' }
+];
+const loansData = [
+{ id: 'L-2201', name: 'بقالة · الحرية', late: [0, 5, 14], r: 'high', signal: 'التأخير يتضاعف كل شهر، والإيداعات بحسابه نزلت 30% خلال شهرين.', action: 'اتصال من مسؤول القرض هالأسبوع، ودراسة إعادة جدولة.' },
+{ id: 'L-2210', name: 'مواد بناء · أبو غريب', late: [3, 9, 21], r: 'high', signal: 'قطاعه متأثر بتراجع الإنفاق على المشاريع. واردات الحديد والآلات نازلة بقوة.', action: 'زيارة ميدانية، ومراجعة باقي قروض قطاع البناء.' },
+{ id: 'L-2223', name: 'كهربائيات · الشورجة', late: [2, 4, 7], r: 'mid', signal: 'بضاعته مستوردة ومسعّرة بالدولار، وكلفته ارتفعت بعد تعديل سعر الصرف.', action: 'تذكير قبل موعد القسط بـ 3 أيام، ومتابعة الشهر الجاي.' },
+{ id: 'L-2215', name: 'ألبسة أطفال · الكاظمية', late: [0, 0, 6], r: 'mid', signal: 'أول تأخير بسجله. ممكن يكون موسمي.', action: 'رسالة واتساب ودّية، بدون تصعيد.' },
+{ id: 'L-2207', name: 'مخبز · بغداد الجديدة', late: [0, 0, 0], r: 'low', signal: 'التزام كامل والإيداعات مستقرة.', action: 'مرشح لتمويل ثاني بشروط أفضل.' },
+{ id: 'L-2218', name: 'مكتب طباعة · الجادرية', late: [0, 1, 0], r: 'low', signal: 'تأخير يوم واحد ورجع انتظم.', action: 'لا شي.' }
+];
+const L = { high: 'خطورة عالية', mid: 'خطورة متوسطة', low: 'منخفضة' };
+const shown = loansData.filter((l) => st.risk === 'all' || l.r === st.risk);
+const loans = shown.map((l) => {
+const dark = l.r === 'high';
+return {
+id: l.id, name: l.name, level: L[l.r], signal: l.signal, action: l.action,
+muted: dark ? '#BDBDBD' : '#555', line: dark ? '#333333' : '#E5E5E5',
+box: 'border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; ' + (dark ? 'background: #0A0A0A; color: #FAFAFA' : l.r === 'mid' ? 'background: #FFFFFF; border: 2px solid #0A0A0A' : 'background: #FFFFFF; border: 1px solid #E5E5E5'),
+badge: 'font-size: 12px; border-radius: 999px; padding: 2px 10px; ' + (dark ? 'background: #FAFAFA; color: #0A0A0A' : 'border: 1px solid #555; color: #333'),
+late: l.late.map((d) => ({ v: String(d), bar: 'width: 100%; border-radius: 4px; height: ' + Math.max(3, Math.round(d / 21 * 30)) + 'px; background: ' + (dark ? '#FAFAFA' : '#0A0A0A') }))
+};
+});
+const fdefs = [['all', 'الكل'], ['high', 'عالية'], ['mid', 'متوسطة'], ['low', 'منخفضة']];
+const filters = fdefs.map((f) => ({ label: f[1], pick: () => this.setState({ risk: f[0] }), style: 'border-radius: 999px; padding: 8px 18px; font-size: 14px; min-height: 44px; ' + (st.risk === f[0] ? 'background: #0A0A0A; color: #FAFAFA; border: 1px solid #0A0A0A' : 'background: #FFFFFF; color: #0A0A0A; border: 1px solid #BDBDBD') }));
+const lc = (r) => loansData.filter((x) => x.r === r).length;
+const warnStats = [
+{ v: String(loansData.length), l: 'قروض بالعينة' },
+{ v: String(lc('high')), l: 'خطورة عالية: تدخل هالأسبوع' },
+{ v: String(lc('mid')), l: 'خطورة متوسطة: متابعة' },
+{ v: String(lc('low')), l: 'منتظمة' }
+];
+const tabOn = 'border-radius: 999px; padding: 12px 22px; font-size: 15px; font-weight: 700; min-height: 44px; background: #0A0A0A; color: #FAFAFA; border: 1px solid #0A0A0A';
+const tabOff = 'border-radius: 999px; padding: 12px 22px; font-size: 15px; font-weight: 500; min-height: 44px; background: #FFFFFF; color: #0A0A0A; border: 1px solid #BDBDBD';
+return {
+isTriage: st.tab === 'triage', isWarn: st.tab === 'warn',
+showTriage: () => this.setState({ tab: 'triage' }), showWarn: () => this.setState({ tab: 'warn' }),
+tabA: st.tab === 'triage' ? tabOn : tabOff, tabB: st.tab === 'warn' ? tabOn : tabOff,
+apps: apps, sel: sel, triageStats: triageStats,
+loans: loans, filters: filters, warnStats: warnStats
+};
+}
+}
+mountDC(Component);
+</script>
+</body>
+</html>

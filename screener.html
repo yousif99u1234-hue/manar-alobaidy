@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ديمو: فلتر عروض المشاريع | يوسف أحمد</title>
+<meta name="description" content="مذكرة صفحة وحدة لكل عرض مشروع.">
+<meta property="og:title" content="ديمو: فلتر عروض المشاريع | يوسف أحمد">
+<meta property="og:description" content="مذكرة صفحة وحدة لكل عرض مشروع.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAFAFA}
+a{color:#0A0A0A}a:hover{color:#444}
+p{margin:0}
+h1,h2,h3{margin:0}
+button{font-family:inherit;cursor:pointer;text-align:inherit}
+</style>
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+<div dir="rtl" style="font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; color: #0A0A0A; background: #FAFAFA; line-height: 1.7">
+
+<header style="border-bottom: 1px solid #E5E5E5">
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center">
+<div style="display: flex; flex-direction: column; line-height: 1.3">
+<span style="font-weight: 700; font-size: 18px">يوسف أحمد</span>
+<span style="font-size: 13px; color: #555; font-family: 'Space Grotesk', sans-serif" dir="ltr">Creative Strategist &amp; AI Advisor</span>
+</div>
+<a href="index.html" style="font-size: 14px; font-weight: 500; text-decoration: none; border: 1px solid #BDBDBD; border-radius: 999px; padding: 10px 20px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">→ رجوع للعرض</a>
+</div>
+</header>
+
+<section style="background: #0A0A0A; color: #FAFAFA">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px 64px; display: flex; flex-direction: column; gap: 20px">
+<span style="font-size: 14px; color: #BDBDBD; font-weight: 500">منار المستثمر · ديمو 1 من 4</span>
+<h1 style="font-size: clamp(34px, 4.6vw, 56px); line-height: 1.25; font-weight: 700; max-width: 920px">فلتر عروض المشاريع: مذكرة صفحة وحدة لكل عرض</h1>
+<p style="font-size: 18px; color: #D4D4D4; max-width: 760px; font-weight: 300">صاحب المشروع يرفع الـ Pitch Deck وأرقامه. الوكيل يقراها، يحسب التقييم، يطلع علامات الخطر، ويربط المشروع بأرقام الاقتصاد اللي أنت تنشرها. أنت تقرا دقيقتين بدل ساعة.</p>
+<span style="font-size: 13px; border: 1px solid #555; color: #D4D4D4; padding: 6px 14px; border-radius: 999px; align-self: flex-start">المشاريع بهالديمو تجريبية لأغراض العرض</span>
+</div>
+</section>
+
+<section>
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 32px 96px; display: flex; flex-direction: column; gap: 24px">
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #555; font-weight: 500">اختار عرض مشروع</span>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+<button type="button" onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.label }}</button>
+</sc-for>
+</div>
+</div>
+
+<article style="background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 16px; overflow: hidden">
+<div style="padding: 28px 32px; border-bottom: 1px solid #E5E5E5; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 420px">
+<span style="font-size: 13px; color: #555; font-weight: 500">مذكرة استثمار · {{ p.sector }}</span>
+<h2 style="font-size: 28px; font-weight: 700; line-height: 1.3">{{ p.name }}</h2>
+<p style="font-size: 16px; color: #444">{{ p.summary }}</p>
+</div>
+<span style="{{ p.routeStyle }}">{{ p.route }}</span>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: #E5E5E5; border-bottom: 1px solid #E5E5E5">
+<sc-for list="{{ p.nums }}" as="n" hint-placeholder-count="6">
+<div style="background: #FFFFFF; padding: 18px 22px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; color: #555">{{ n.l }}</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700" dir="ltr">{{ n.v }}</span>
+</div>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-wrap: wrap">
+<div style="flex: 1 1 420px; min-width: 0; padding: 28px 32px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #E5E5E5">
+<span style="font-size: 14px; color: #555; font-weight: 500">ما يطمّن وما يقلق</span>
+<sc-for list="{{ p.flags }}" as="f" hint-placeholder-count="4">
+<div style="display: flex; gap: 12px; align-items: flex-start; font-size: 15px">
+<span style="{{ f.mark }}">{{ f.sym }}</span><span>{{ f.t }}</span>
+</div>
+</sc-for>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; padding: 28px 32px; display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid #E5E5E5; background: #FAFAFA">
+<span style="font-size: 14px; color: #555; font-weight: 500">5 أسئلة تسألها لصاحب المشروع</span>
+<sc-for list="{{ p.qs }}" as="q" hint-placeholder-count="5">
+<div style="display: flex; gap: 12px; font-size: 15px"><span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #555">{{ q.n }}</span><span>{{ q.t }}</span></div>
+</sc-for>
+</div>
+</div>
+
+<div style="padding: 24px 32px; background: #0A0A0A; color: #FAFAFA; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #BDBDBD; font-weight: 500">ربط بأرقامك عن الاقتصاد العراقي</span>
+<p style="font-size: 16px">{{ p.macro }}</p>
+</div>
+</article>
+
+<div style="background: #F0F0F0; padding: 20px 24px; border-radius: 12px; font-size: 15px; color: #333">
+<strong style="color: #0A0A0A">الوكيل ما يقرر.</strong> يرتّب المعلومات ويطلع الأسئلة الصح، والقرار يبقى إلك. معايير التقييم (القطاعات اللي تفضلها، حد التقييم، حجم الحصة) نضبطها حسب طريقتك أنت.
+</div>
+
+</div>
+</section>
+</div>
+</template>
+<script src="dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { i: 0 }; }
+renderVals() {
+const P = [
+{ tab: 'منصة توصيل بقالة', name: 'سلّتي · توصيل بقالة ببغداد', sector: 'تجارة إلكترونية', route: 'مناسب للاستثمار', r: 'eq',
+summary: 'تطبيق يوصل طلبات البقالة من محلات الأحياء خلال ساعة. شغال بـ 4 مناطق ببغداد من 18 شهر.',
+nums: [['المبلغ المطلوب', '$150K'], ['الحصة', '10%'], ['التقييم الضمني', '$1.5M'], ['الإيراد الشهري', '$29.6K'], ['النمو الشهري (6 أشهر)', '+12%'], ['التقييم ÷ الإيراد السنوي', '4.2×']],
+flags: [[1, 'إيراد حقيقي ونمو ثابت 6 أشهر متتالية'], [1, 'التقييم بحدود 4 أضعاف الإيراد السنوي، معقول لمرحلته'], [0, '78% من الطلبات دفع عند الاستلام، ونقد كثير يعني مخاطرة تحصيل'], [0, 'هامش الربح لكل طلب صغير، والنمو ممكن يعني خسارة أكبر']],
+qs: ['شكد كلفة الطلب الواحد بعد التوصيل، وشوكت يصير مربح؟', 'شكد نسبة الزبائن اللي يرجعون يطلبون خلال شهر؟', 'شنو خطتكم إذا دخل منافس كبير بنفس المناطق؟', 'وين راح تصرفون الـ 150 ألف بالضبط؟', 'شلون راح تقللون الدفع النقدي؟'],
+macro: 'تحليلك لصادرات الصين بيّن إن المستهلك العراقي بعده يشتري حتى لو المشاريع متوقفة. هذا يدعم قطاع الاستهلاك اليومي، بس ارتفاع أسعار الغذاء 6.5% ببغداد بعد سعر الصرف ممكن يضغط على هامش المشروع.' },
+{ tab: 'مصنع ألمنيوم', name: 'الرافدين للألمنيوم · أبواب وشبابيك', sector: 'تصنيع ومواد بناء', route: 'مناسب لقرض من FFC', r: 'debt',
+summary: 'ورشة تصنيع أبواب وشبابيك ألمنيوم بالشعلة، 11 سنة شغل، 9 عمال. يريد التمويل لماكنة قص جديدة.',
+nums: [['المبلغ المطلوب', '$80K'], ['الحصة', '20%'], ['التقييم الضمني', '$400K'], ['الإيراد الشهري', '$21K'], ['النمو الشهري (6 أشهر)', '0%'], ['صافي الربح الشهري', '$3.1K']],
+flags: [[1, 'مشروع مربح ومستقر من 11 سنة'], [1, 'الماكنة أصل حقيقي ممكن يكون ضمان'], [0, 'ما بيه نمو، فالاستثمار بحصة ما يرجع بعائد كبير'], [0, 'مرتبط بقطاع البناء، وهو قطاع متباطئ حالياً']],
+qs: ['شكد راح تزيد الطاقة الإنتاجية بالماكنة الجديدة؟', 'عندكم عقود موقعة للأشهر الجاية؟', 'منو أكبر 3 زبائن عندكم، وشكد نسبتهم من المبيعات؟', 'تفضلون شريك بحصة لو قرض بأقساط؟', 'شنو الضمانات المتوفرة؟'],
+macro: 'حسب تحليلك، واردات الحديد والصلب من الصين نزلت 56% والآلات 49%، وهذا مؤشر على تباطؤ المشاريع الإنشائية. المشروع مربح، بس الأنسب إله قرض بحجم محسوب من FFC بدل حصة استثمارية.' },
+{ tab: 'تطبيق تعليمي بالـ AI', name: 'ذكي · مدرّس AI لطلاب الإعدادية', sector: 'تقنيات تعليم', route: 'مو جاهز بعد', r: 'no',
+summary: 'تطبيق يجاوب أسئلة الطلاب من المنهج العراقي بالذكاء الاصطناعي. نسخة تجريبية بيها 600 مستخدم مجاني.',
+nums: [['المبلغ المطلوب', '$300K'], ['الحصة', '5%'], ['التقييم الضمني', '$6M'], ['الإيراد الشهري', '$0'], ['المستخدمين', '600'], ['المستخدمين النشطين أسبوعياً', '14%']],
+flags: [[1, 'سوق كبير، وحاجة حقيقية عند الطلاب وأهاليهم'], [0, 'تقييم 6 مليون دولار بدون أي إيراد'], [0, '14% بس يرجعون يستخدمونه كل أسبوع'], [0, 'الفريق بدون شريك تقني، والتطوير معتمد على شركة خارجية']],
+qs: ['شكد ولي أمر مستعد يدفع اشتراك شهري، وجربتوا هذا؟', 'ليش 86% من المستخدمين ما يرجعون؟', 'شلون وصلتوا لتقييم 6 مليون؟', 'منو يملك الكود والتطوير؟', 'شنو تحققون خلال 6 أشهر بدون تمويل؟'],
+macro: 'حسب تحليلك عن سكان العراق 2050، الإنفاق على التعليم لازم يرتفع 119% والطلب على الصفوف بالذروة بالعقد الجاي. الفرصة حقيقية، بس المشروع يحتاج يثبت إن الناس تدفع قبل لا يطلب هالتقييم.' }
+];
+const st = this.state;
+const p = P[st.i];
+const routeBase = 'font-size: 14px; font-weight: 700; border-radius: 999px; padding: 10px 20px; white-space: nowrap; ';
+return {
+tabs: P.map((x, i) => ({ label: x.tab, pick: () => this.setState({ i: i }), style: 'border-radius: 999px; padding: 12px 22px; font-size: 15px; font-weight: 500; min-height: 44px; ' + (i === st.i ? 'background: #0A0A0A; color: #FAFAFA; border: 1px solid #0A0A0A' : 'background: #FFFFFF; color: #0A0A0A; border: 1px solid #BDBDBD') })),
+p: {
+name: p.name, sector: p.sector, summary: p.summary, route: p.route, macro: p.macro,
+routeStyle: routeBase + (p.r === 'eq' ? 'background: #0A0A0A; color: #FAFAFA' : p.r === 'debt' ? 'border: 2px solid #0A0A0A; color: #0A0A0A' : 'border: 1px dashed #555; color: #333'),
+nums: p.nums.map((n) => ({ l: n[0], v: n[1] })),
+flags: p.flags.map((f) => ({ t: f[1], sym: f[0] ? '✓' : '!', mark: 'flex-shrink: 0; width: 26px; height: 26px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-family: Space Grotesk, sans-serif; font-size: 14px; ' + (f[0] ? 'background: #F0F0F0; color: #0A0A0A' : 'background: #0A0A0A; color: #FAFAFA') })),
+qs: p.qs.map((q, i) => ({ n: '0' + (i + 1), t: q }))
+}
+};
+}
+}
+mountDC(Component);
+</script>
+</body>
+</html>
